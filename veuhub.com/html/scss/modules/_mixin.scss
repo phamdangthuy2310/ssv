@@ -1,0 +1,338 @@
+@mixin font-face($style-name, $file, $fontWeight,$fontStyle, $category:"") {
+  $filepath: "../fonts/" + $file;
+  @font-face {
+    font-family: "#{$style-name}";
+    src: url($filepath + ".eot");
+    src: url($filepath + ".eot?#iefix") format('embedded-opentype'),
+    url($filepath + ".woff") format('woff'),
+    url($filepath + ".ttf")  format('truetype'),
+    url($filepath + ".svg#" + $style-name + "") format('svg');
+    font-weight: $fontWeight;
+    font-style: $fontStyle
+  }
+  %#{$style-name} {
+    font: {
+      @if $category != "" {
+        family: "#{$style-name}", #{$category};
+      }
+      @else {
+        family: "#{$style-name}";
+        weight: normal;
+      }
+    }
+  }
+}
+/*
+Mixin handling breakpoints for media queries*/
+@mixin breakpoint($point) 		{
+  @if $point == retina {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { @content; }
+  }
+  @if $point == xxlarge {
+    @media (min-width: 1921px) { @content; }
+  }
+  @if $point == xlarge {
+    @media (min-width: 1600px) { @content; }
+  }
+  @if $point == large {
+    @media (min-width: 1441px) { @content; }
+  }
+  @else if $point == regular-screen {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else if $point ==  medium {
+    @media (min-width: 1024px)  { @content; }
+  }
+  @else if $point ==  landscape {
+    @media (min-width: 992px)  { @content; }
+  }
+  @else if $point ==  smaller-screen {
+    @media (min-width: 800px)  { @content; }
+  }
+  @else if $point ==  portrait {
+    @media (min-width: 768px)  { @content; }
+  }
+  @else if $point ==  small {
+    @media (min-width: 640px)  { @content; }
+  }
+  @else if $point ==  large-mobile {
+    @media (min-width: 480px)  { @content; }
+  }
+  @else if $point ==  mobile {
+    @media (min-width: 360px)  { @content; }
+  }
+  @else if $point ==  mx-landscape {
+    @media (max-width: 991px)  { @content; }
+  }
+  @else if $point ==  mx-portrait {
+    @media (max-width: 767px)  { @content; }
+  }
+  @else if $point ==  mx-large-mobile {
+    @media (max-width: 479px)  { @content; }
+  }
+}
+/*
+mixin arrow*/
+@mixin arrow($direction, $size, $color) {
+  @if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  } @else if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right:$size solid $color;
+  }
+}
+/*
+mixin border-radius*/
+@mixin border-radius($name, $radius){
+  @if $name == circle{
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+  }
+  @if $name == atop{
+    -webkit-border-top-left-radius: $radius;
+    -webkit-border-top-right-radius: $radius;
+    -moz-border-radius-topleft: $radius;
+    -moz-border-radius-topright: $radius;
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+  }
+  @if $name == abottom{
+    -webkit-border-bottom-right-radius: $radius;
+    -webkit-border-bottom-left-radius: $radius;
+    -moz-border-radius-bottomright: $radius;
+    -moz-border-radius-bottomleft: $radius;
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+  @if $name == aleft{
+    -webkit-border-top-left-radius: $radius;
+    -webkit-border-bottom-left-radius: $radius;
+    -moz-border-radius-topleft: $radius;
+    -moz-border-radius-bottomleft: $radius;
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+  @if $name == aright{
+    -webkit-border-top-right-radius: $radius;
+    -webkit-border-bottom-right-radius: $radius;
+    -moz-border-radius-topright: $radius;
+    -moz-border-radius-bottomright: $radius;
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+  }
+  @if $name == top-left{
+    -webkit-border-top-left-radius: $radius;
+    -moz-border-radius-topleft: $radius;
+    border-top-left-radius: $radius;
+  }
+  @if $name == top-right{
+    -webkit-border-top-right-radius: $radius;
+    -moz-border-radius-topright: $radius;
+    border-top-right-radius: $radius;
+  }
+  @if $name == bottom-left{
+    -webkit-border-bottom-left-radius: $radius;
+    -moz-border-radius-bottomleft: $radius;
+    border-bottom-left-radius: $radius;
+  }
+  @if $name == bottom-right{
+    -webkit-border-bottom-right-radius: $radius;
+    -moz-border-radius-bottomright: $radius;
+    border-bottom-right-radius: $radius;
+  }
+
+}
+/*
+mixin color black and white (and default)*/
+@mixin black-and-white() {
+  filter: grayscale(100%);
+}
+
+@mixin color() {
+  filter: grayscale(0%);
+}
+
+/*
+mixin column*/
+@mixin columns ($columns, $gap) {
+  column-count: $columns;
+  column-gap: $gap;
+}
+/*
+mixin no margin, no padding*/
+@mixin no-margin-padding() {
+  margin: 0;
+  padding: 0;
+}
+/*
+mixin border use image*/
+@mixin borderImage($src, $rad){
+  -webkit-border-image: url($src) $rad round; /* Safari 3.1-5 */
+       -o-border-image: url($src) $rad round; /* Opera 11-12.1 */
+          border-image: url($src) $rad round;
+}
+
+/*
+mixin tranform rotate*/
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+  filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+}
+@mixin filterer($name, $arg){
+  -webkit-filter: #{$name}(#{$arg});
+     -moz-filter: #{$name}(#{$arg});
+      -ms-filter: #{$name}(#{$arg});
+       -o-filter: #{$name}(#{$arg});
+          filter: #{$name}(#{$arg});
+}
+/*
+mixin cleafix*/
+%clearfix-cs{
+  overflow: hidden;
+  &:after{
+    clear: both;
+  }
+  &:before{
+    display: table;
+    content: "";
+  }
+}
+@mixin padding($t, $r, $b, $l){
+  padding: $t $r $b $l;
+}
+@mixin border($width, $type, $color){
+  border: $width $type $color;
+}
+@mixin btn-normal($radius){
+  @include border-radius(circle, $radius);
+  border: none;
+}
+@mixin box-shadow($l, $t,$stroke, $blur, $c){
+  -webkit-box-shadow: $l $t $stroke $blur $c;
+     -moz-box-shadow: $l $t $stroke $blur $c;
+       -o-box-shadow: $l $t $stroke $blur $c;
+          box-shadow: $l $t $stroke $blur $c;
+}
+@mixin transition($adj, $s, $eff){
+  -webkit-transition: $adj $s $eff;
+     -moz-transition: $adj $s $eff;
+      -ms-transition: $adj $s $eff;
+       -o-transition: $adj $s $eff;
+          transition: $adj $s $eff;
+}
+@mixin bgImage($urlI){
+  -webkit-background-image: url($urlI);
+     -moz-background-image: url($urlI);
+      -ms-background-image: url($urlI);
+          background-image: url($urlI);
+}
+@mixin bgSize($s){
+  -webkit-background-size: $s;
+     -moz-background-size: $s;
+       -o-background-size: $s;
+          background-size: $s;
+}
+@mixin gradient2ar($color1, $color2){
+  background: $color1;
+  background: -webkit-linear-gradient($color1, $color2);
+  background:    -moz-linear-gradient($color1, $color2);
+  background:      -o-linear-gradient($color1, $color2);
+  background:         linear-gradient($color1, $color2);
+}
+@mixin gradient($type, $color1, $color2){
+  @if $type == ""{
+    background: $color1; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient($color1, $color2); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient($color1, $color2); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient($color1, $color2); /* For Firefox 3.6 to 15 */
+    background: linear-gradient($color1, $color2); /* Standard syntax */
+  }
+  @if $type == right{
+    background: $color1; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, $color1 , $color2); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, $color1, $color2); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, $color1, $color2); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, $color1 , $color2); /* Standard syntax */
+  }
+  @if $type == bottomright{
+    background: $color1; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, $color1, $color2); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, $color1, $color2); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, $color1, $color2); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, $color1, $color2); /* Standard syntax */
+  }
+}
+@mixin transfRotate($deg){
+  -webkit-transform: rotate($deg);
+      -ms-transform: rotate($deg);
+          transform: rotate($deg);
+}
+/*
+Mixin background button and hover*/
+@mixin btnBg($bg, $opacity){
+  background-color: $bg;
+  &:hover,
+  &:focus{
+    background-color: rgba($bg,$opacity);
+  }
+}
+/*
+Mixin Overlay*/
+@mixin overlay($type ,$c1, $c2, $oc1, $oc2){
+  position: relative;
+  @if $type == simple{
+    &:before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($c1, $oc1);
+      z-index: 1;
+    }
+  }
+  @if $type == special{
+    &:before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($c1, $oc1);
+      z-index: 2;
+    }
+    &:after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($c2, $oc2);
+      z-index: 1;
+    }
+  }
+  .container{
+    position: relative;
+    z-index: 3;
+  }
+}

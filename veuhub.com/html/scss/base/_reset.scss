@@ -1,0 +1,82 @@
+/* - CSS Reset -> Begin ----------------------------------------- */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+nav{
+  ul,
+  ol {
+    list-style: none;
+    list-style-image: none;
+  }
+}
+
+ol, ul {
+  list-style: none;
+}
+
+q {
+  font-style: italic;
+  quotes: "\00ab" "\00bb";
+}
+
+abbr {
+  border-bottom:1px dashed #949494;
+}
+
+small {
+  font-size:11px;
+}
+
+big {
+  font-size:14px;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+object {
+  display: block;
+  border: 1px solid #fff;
+}
+
+input, textarea {outline: none;}
+
+/* Chrome, Safari */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #2f2f2f;}
+
+/* Firefox */
+input:-moz-placeholder, textarea:-moz-placeholder {color: #2f2f2f;}
+
+/* - CSS Reset -> End ----------------------------------------- */

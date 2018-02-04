@@ -1,0 +1,17 @@
+@function column-width($col) {
+  @return percentage($col/$totalgr);
+}
+@for $i from 1 through $totalgr {
+  .col-#{$i} { width: column-width($i) };
+}
+.fully{
+  .container{
+    width: 100%;
+  }
+}
+.two-columns {
+  @include columns(2, 30px);
+}
+.three-columns {
+  @include columns(3, 30px);
+}

@@ -1,0 +1,86 @@
+%common{
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
+  line-height: 1em;
+  height: 42px;
+  &:hover,
+  &:focus{
+    text-decoration: none;
+  }
+}
+%button{
+  min-width: 165px;
+  @extend %common;
+  @include border-radius(circle, 0);
+}
+%tag{
+  padding: 9px;
+  @extend %common;
+}
+.btn{
+  @extend %button;
+  background-color: transparent;
+  white-space: normal;
+  padding: 13px 0;
+  &:hover,
+  &:focus{
+  }
+  &-white{
+    color: $white;
+    border: 2px solid $white;
+    &:hover,
+    &:focus{
+      background-color: $white;
+      color: $red;
+    }
+  }
+  &-red{
+    background-color: $red;
+    color: $white;
+    min-width: 260px;
+    font-size: 16px;
+    &:hover,
+    &:focus{
+      background-color: $white;
+      color: $red;
+    }
+  }
+  &-cyan{
+    background-color: $cyan;
+    border: 2px solid $cyan;
+    color: $white;
+    &:hover,
+    &:focus{
+      background-color: transparent;
+      color: $cyan;
+    }
+  }
+  &-full{
+    width: 100%;
+    font-size: 24px;
+  }
+
+  &.with-border{
+    border: 1px solid #979797;
+    color: #4A4A4A;
+    @include border-radius('circle', 25px);
+    transition: all 0.5s linear;
+    &:hover,
+    &:focus{
+      background-color: $cyan;
+      border-color: $cyan;
+      color: $white;
+    }
+  }
+}
+.tag{
+  @extend %tag;
+  border: 2px solid $cyan;
+  color: $cyan;
+  &:hover,
+  &:focus{
+    background-color: $cyan;
+    color: $white;
+  }
+}

@@ -1,0 +1,143 @@
+@include font-face("Source Sans Pro","SourceSansPro-Black",900,normal);
+@include font-face("Source Sans Pro","SourceSansPro-BlackItalic",900,italic);
+@include font-face("Source Sans Pro","SourceSansPro-Bold",bold,normal);
+@include font-face("Source Sans Pro","SourceSansPro-BoldItalic",bold,italic);
+@include font-face("Source Sans Pro","SourceSansPro-ExtraLight",200,normal);
+@include font-face("Source Sans Pro","SourceSansPro-ExtraLightItalic",200,italic);
+@include font-face("Source Sans Pro","SourceSansPro-Italic",normal,italic);
+@include font-face("Source Sans Pro","SourceSansPro-Light",300,normal);
+@include font-face("Source Sans Pro","SourceSansPro-LightItalic",300,italic);
+@include font-face("Source Sans Pro","SourceSansPro-Regular",normal,normal);
+@include font-face("Source Sans Pro","SourceSansPro-Semibold",600,normal);
+@include font-face("Source Sans Pro","SourceSansPro-SemiboldItalic",600,italic);
+
+@include font-face("Abril Fatface","AbrilFatface-Regular",normal,normal);
+html, body{
+  font-family: $font-main;
+  font-weight: normal;
+  font-style: normal;
+  font-size: $font-size-main;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*{
+  outline: none;
+  &:hover,
+  &:focus{
+    outline: none;
+  }
+}
+a{
+  color: $cyan;
+  &:hover,
+  &:focus{
+    color: rgba($cyan, 0.8);
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  line-height: 1.3;
+  margin-top: 0;
+}
+img{
+  max-width: 100%;
+}
+p{
+  margin-bottom: 15px;
+  font-size: $font-size-main;
+  line-height: 1.3;
+}
+$spacers: 50, 60, 70, 80, 100, 150, 200,300,400, 500;
+@each $spacer in $spacers{
+  .spacer-#{$spacer}{
+    height: #{$spacer}px;
+  }
+}
+%heading{
+  font-family: $font-abril-fatface;
+  margin-bottom: 30px;
+}
+.heading{
+  &1{
+    @extend %heading;
+    font-size: 90px;
+    line-height: 1;
+    color: $white;
+  }
+  &2 {
+    @extend %heading;
+    font-size: 60px;
+    line-height: 65px;
+  }
+  &3{
+    @extend %heading;
+    font-size: 36px;
+    line-height: 42px;
+    color: $black-light;
+    margin-bottom: 10px;
+  }
+  &4{
+    font-family: $font-source-sans-pro;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    color: $grey-bold;
+    margin-bottom: 15px;
+  }
+  &5{
+    @extend %heading;
+    font-size: 24px;
+    line-height: 32px;
+    color: $black-light;
+    margin-bottom: 15px;
+  }
+  &6{
+    @extend %heading;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+%body{
+  &1{
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    color: $black-light;
+  }
+  &2{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 5px;
+    color: $black;
+  }
+  &3{
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 5px;
+    color: $red;
+  }
+  &4{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 5px;
+    color: $black-light;
+  }
+}
+.text{
+  &-red{
+    color: #{$red}!important;
+  }
+  &-lightblack{
+    color: #{$black-light}!important;
+  }
+}

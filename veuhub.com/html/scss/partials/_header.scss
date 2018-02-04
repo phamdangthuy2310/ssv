@@ -1,0 +1,155 @@
+.site__header{
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  padding: 30px 0;
+  .scrolled &{
+    padding: 5px 0;
+    background-color: $white;
+    @include box-shadow(0,0,10px,0, rgba(0,0,0,0.2));
+    position: fixed;
+    .logo{
+      img{display: none}
+      .hasSc{display: inline-block;}
+    }
+  }
+}
+.header__logo{
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+.header__nav{
+
+}
+.nav__desktop{
+  text-align: center;
+  .nav__menu-main{
+    display: inline-block;
+    & > li{
+      display: inline-block;
+      & > a{
+        font-size: 12px;
+        font-weight: $light;
+        text-transform: uppercase;
+        color: $white;
+        display: block;
+        padding: 0 22px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.nav__mobile{
+  display: none;
+  margin-top: 22px;
+  float: right;
+  width: 23px;
+  height: 18px;
+  position: relative;
+  &-line{
+    height: $height-line-ham;
+    width: $width-line-ham;
+    display: block;
+    margin-bottom: $margin-bt-line-ham;
+    background-color: $bg-line-ham;
+    transition: all 0.3s linear;
+  }
+  &.open{
+    .nav__mobile-line{
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 99;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .nav__desktop{
+    .nav__menu-main{
+      display: inline-block!important;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .header__logo{
+    float: left;
+  }
+  .nav__desktop{
+    float: right;
+    position: relative;
+    .nav__menu-main{
+      display: none;
+      width: 100%;
+      background-color: $white;
+      left: 0;
+      top: 100%;
+      z-index: 999;
+      & > li{
+        width: 100%;
+        transition: all 0.3s linear;
+        padding: 15px;
+        & > a{
+          color: $cyan;
+          font-size: 16px;
+        }
+        &:hover,
+        &:focus{
+          background-color: $cyan;
+          & > a{
+            color: $white;
+          }
+        }
+        .skin__red &{
+          & > a{
+            color: $red;
+          }
+          &:hover,
+          &:focus{
+            background-color: $red;
+            & > a{
+              color: $white;
+            }
+          }
+        }
+        .skin__violet &{
+          & > a{
+            color: $violet;
+          }
+          &:hover,
+          &:focus{
+            background-color: $violet;
+            & > a{
+              color: $white;
+            }
+          }
+        }
+        .skin__green &{
+          & > a{
+            color: $green;
+          }
+          &:hover,
+          &:focus{
+            background-color: $green;
+            & > a{
+              color: $white;
+            }
+          }
+        }
+
+      }
+    }
+  }
+  .nav__mobile{
+    display: block;
+  }
+}
+@media (max-width: 400px) {
+  .header__logo{
+    img{
+      width: 40vw;
+    }
+  }
+}

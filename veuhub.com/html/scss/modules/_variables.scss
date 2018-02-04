@@ -1,0 +1,67 @@
+//variable math
+$pi: 3.14159265359;
+$_precision: 10;
+//end variable math
+
+//font style
+$font-source-sans-pro: 'Source Sans Pro', sans-serif;
+$font-abril-fatface: 'Abril Fatface', cursive;
+$font-main: 'Poppins', sans-serif;
+$font-awesome: "FontAwesome";
+
+$font-size-main: 16px;
+
+$thin: 100;
+$thiner: 200;
+$light: 300;
+$normal: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+
+$italic: italic;
+//end font style
+
+//color
+$white: #ffffff;
+$black: #000000;
+$black-light: #333333;
+$red: #FB3943;
+$cyan: #23A79E;
+$green: #20B555;
+$grey-bold: #7f7f7f;
+$grey: #9B9B9B;
+$black-footer: #4a4a4a;
+$violet: #BC3F8C;
+
+$search-area: #595959;
+
+$line-0-red:#912b2b;
+$line-1-medium-red:#c23838;
+$line-2-light-red:#ef4949;
+$line-3-rose:#ef8686;
+$line-4-rich-white:#c8d400;
+$line-5-zesty-white:#ecfa00;
+$line-6-sweet-white:#fff600;
+$line-7-dessert:#931bbb;
+//end color
+
+//grid
+$totalgr: 10;
+//end grid
+
+//header
+$height-line-ham: 2px;
+$width-line-ham: 23px;
+$margin-bt-line-ham: 4px;
+$bg-line-ham: $white;
+//end header
+
+//media screen
+$breakpoints: (
+        smaller: 479px,
+        small: 767px,
+        medium: 992px,
+        large: 1200px
+);
+//end media screen

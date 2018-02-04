@@ -1,0 +1,257 @@
+%ultable{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  & > li{
+    display: table-cell;
+  }
+}
+%ulnostyle{
+  padding: 0;
+  & > li{
+    list-style: none;
+  }
+}
+%list{
+  @extend %ulnostyle;
+  margin-bottom: 50px;
+  .content{
+    .ttl{
+      @extend .heading5;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+  }
+}
+%card{
+  @extend %ulnostyle;
+  @include box-shadow(0,0,10px,0, rgba($black, 0.2));
+  .image{
+    text-align: center;
+  }
+  .content{
+    padding: 25px;
+  }
+  .date{
+    @extend %body3;
+  }
+  .ttl{
+    @extend .heading5;
+    text-align: left;
+    a{
+      color: inherit;
+      &:hover,
+      &:focus{
+        color: $red;
+        text-decoration: none;
+      }
+    }
+  }
+  p{
+    @extend %body4;
+    a{
+      display: inline-block;
+      color: $red;
+    }
+  }
+  &:hover{
+    @include box-shadow(0,0,20px,0, rgba($black, 0.4));
+  }
+}
+.box{
+  &-feature{
+    @extend %list;
+    .image{
+      span{
+        display: inline-block;
+        background-color: $white;
+        width: 125px;
+        height: 125px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        @include border-radius(circle, 50%);
+      }
+    }
+    .content{
+      color: $white;
+      .ttl{
+        color: $white;
+        border-bottom: 1px solid $cyan;
+      }
+    }
+  }
+  &-wine{
+    @extend %list;
+    .content{
+      .ttl{
+        display: block;
+        color: $red;
+        border-bottom: 8px solid $cyan;
+      }
+      p{
+        font-size: 16px;
+      }
+    }
+  }
+  &-card{
+    @extend %card;
+    margin-bottom: 30px;
+  }
+}
+@mixin line-border($color){
+  .title{
+    border-color: $color;
+  }
+}
+.box-type{
+  margin-bottom: 60px;
+  .title{
+    border-bottom: 8px solid $line-0-red;
+    text-align: center;
+    .wrtable{
+      min-height: 88px;
+      width: 100%;
+      display: table;
+      .wrtablecell{
+        display: table-cell;
+        vertical-align: bottom;
+      }
+    }
+    .ttl{
+      @extend .heading5;
+      margin-bottom: 10px;
+    }
+    p{
+      margin-bottom: 15px;
+    }
+  }
+  .content{
+    color: $grey-bold;
+    font-size: 18px;
+    padding-top: 15px;
+    p{
+      margin-bottom: 20px;
+    }
+  }
+  &.medium-red{
+    .title{
+      border-color: $line-1-medium-red;
+    }
+  }
+  &.light-red{
+    .title{
+      border-color: $line-2-light-red;
+    }
+  }
+  &.rose{
+    .title{
+      border-color: $line-3-rose;
+    }
+  }
+  &.rich-white{
+    .title{
+      border-color: $line-4-rich-white;
+    }
+  }
+  &.zesty-white{
+    .title{
+      border-color: $line-5-zesty-white;
+    }
+  }
+  &.sweet-white{
+    .title{
+      border-color: $line-6-sweet-white;
+    }
+  }
+  &.dessert{
+    .title{
+      border-color: $line-7-dessert;
+    }
+  }
+}
+.wine-types{
+  &.autocolor{
+    & > .item{
+      &:nth-child(8n+1){
+        @include line-border($line-0-red);
+      }
+      &:nth-child(8n+2){
+        @include line-border($line-1-medium-red);
+      }
+      &:nth-child(8n+3){
+        @include line-border($line-2-light-red);
+      }
+      &:nth-child(8n+4){
+        @include line-border($line-3-rose);
+      }
+      &:nth-child(8n+5){
+        @include line-border($line-4-rich-white);
+      }
+      &:nth-child(8n+6){
+        @include line-border($line-5-zesty-white);
+      }
+      &:nth-child(8n+7){
+        @include line-border($line-6-sweet-white);
+      }
+      &:nth-child(8n+8){
+        @include line-border($line-7-dessert);
+      }
+
+    }
+  }
+
+}
+
+.box-food{
+  text-align: center;
+  margin-bottom: 80px;
+  .content{
+    h5{
+      @extend %body2;
+      color: $red;
+    }
+    p{
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.content-image{
+  .line-content{
+    margin-bottom: 60px;
+    @extend %clearfix-cs;
+    .heading3{
+      text-align: left!important;
+      & + h4{
+        text-align: left;
+        margin-bottom: 40px;
+      }
+    }
+    & > li{
+      width: 50%;
+      float: left;
+      &.content{
+        padding: 0 60px;
+        p{
+          font-size: 18px;
+          margin-bottom: 30px;
+        }
+      }
+      &.image{
+        text-align: center;
+        padding-top: 15px;
+      }
+    }
+    &.im-ct{
+      & > li{
+        &.image{
+          float: left;
+        }
+        &.content{
+          float: right;
+        }
+      }
+    }
+  }
+}

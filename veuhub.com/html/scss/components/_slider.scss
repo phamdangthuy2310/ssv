@@ -1,0 +1,46 @@
+.slick-dots{
+  bottom: -30px;
+  li{
+    padding: 0 10px;
+    button{
+      width: 10px;
+      height: 10px;
+      background-color: $grey-bold;
+      padding: 0;
+      @include border-radius(circle, 50%);
+    }
+    &.slick-active,
+    &:hover,
+    &:focus{
+      button{
+        background-color: $grey;
+      }
+    }
+  }
+
+}
+.slick{
+  &-prev{
+    &:before{
+      content: "\f104";
+    }
+  }
+  &-next{
+    &:before{
+      content: "\f105";
+    }
+  }
+  &-arrow{
+    &:before{
+      font-family: $font-awesome;
+      font-size: 44.8px;
+      color: $grey-bold;
+    }
+    &:hover,
+    &:focus{
+      &:before{
+        color: $red;
+      }
+    }
+  }
+}
